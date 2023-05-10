@@ -1,5 +1,9 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+defineProps({
+  modelValue: String
+})
+
+let emit = defineEmits(['update:modelValue'])
 
 function onTabPress(e: Event) {
   let t = e.target
@@ -12,6 +16,10 @@ function onTabPress(e: Event) {
 
   t.selectionEnd = start + 2
 }
+
+function update(e) {
+  emit('update:modelValue', e.target.value)
+}
 </script>
 
 <template>
@@ -19,10 +27,8 @@ function onTabPress(e: Event) {
     name=""
     id=""
     @keydown.tab.prevent="onTabPress"
+    @keyup="update"
     placeholder="type me"
-    cols="30"
-    rows="10"
-  >
-Hi there</textarea
-  >
+    v-text="modelValue"
+  />
 </template>
