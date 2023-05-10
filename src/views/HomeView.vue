@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheWelcome from '../components/TheWelcome.vue'
-import useStorage from '@/composables/useStorage'
+import useStorage from '@/composables/storage/useStorage'
 
 let food = useStorage('food', 'salad')
 let age = useStorage('age')
