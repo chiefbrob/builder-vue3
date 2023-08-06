@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ExampleComponent from '@/components/shared/ExampleComponent.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 
 <template>
@@ -8,6 +8,6 @@ import ExampleComponent from '@/components/shared/ExampleComponent.vue'
       <h1>Hello, Bootstrap and Vite!</h1>
       <button class="btn btn-primary">Primary button</button>
     </div>
-    <example-component></example-component>
+    <hello-world :msg="'Builder-vue3'"></hello-world>
   </main>
 </template>
