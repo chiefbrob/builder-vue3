@@ -8,9 +8,11 @@ defineProps<{
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
+      Builder-Vue3 is a template to user interfaces for mobile, web & desktop using ionic. Its ideal
+      backend is Laravel
+      <a href="https://github.com/chiefbrob/builder_laravel" target="_blank" rel="noopener"
+        >Builder Laravel</a
+      >
     </h3>
   </div>
 </template>
