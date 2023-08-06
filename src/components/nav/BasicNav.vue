@@ -38,11 +38,17 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Dropdown
+              Account
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <a class="dropdown-item" href="#" @click="$router.push({ name: 'login' })">Login</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" @click="$router.push({ name: 'register' })"
+                  >Register</a
+                >
+              </li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
