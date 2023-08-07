@@ -8,5 +8,9 @@ export const system = [
     path: '/about',
     name: 'about',
     component: () => import('@/views/AboutView.vue')
+  },
+  {
+    path: '/:catchAll(.*)*',
+    component: () => import('@/views/errors/ErrorNotFound.vue')
   }
 ]

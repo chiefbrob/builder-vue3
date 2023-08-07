@@ -56,6 +56,11 @@
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#" @click="$router.push('/contact')"
+              >Contact</a
+            >
+          </li>
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
