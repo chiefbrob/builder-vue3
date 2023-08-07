@@ -1,8 +1,16 @@
 export const system = [
   {
     path: '/',
+    name: 'welcome',
+    component: () => import('@/views/pages/WelcomeView.vue')
+  },
+  {
+    path: '/home',
     name: 'home',
-    component: () => import('@/views/HomeView.vue')
+    component: () => import('@/views/HomeView.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/about',

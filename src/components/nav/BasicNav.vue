@@ -3,7 +3,7 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#" @click="$router.push({ name: 'home' })">Builder-vue3</a>
+      <a class="navbar-brand" href="#" @click="$router.push({ name: 'welcome' })">Builder-vue3</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -25,6 +25,16 @@
               href="#"
               @click="$router.push({ name: 'about' })"
               >About</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              :active="$route.name === 'home'"
+              aria-current="page"
+              href="#"
+              @click="$router.push({ name: 'home' })"
+              >Home</a
             >
           </li>
           <li class="nav-item">
