@@ -1,10 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import RegisterForm from '@/components/auth/RegisterForm.vue'
+</script>
 
 <template>
   <div class="container">
     <h3>Register</h3>
 
-    <p>Form</p>
+    <register-form></register-form>
   </div>
 </template>
 
