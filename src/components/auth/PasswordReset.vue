@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { toast } from '@/scripts'
-import TextInput from '../shared/form/TextInput.vue'
+import TextInput from '@/components/shared/form/TextInput.vue'
 
 const email = ref('')
-const password = ref('')
 
 const login = async () => {
   const formData = new FormData()
   formData.append('email', email.value)
-  formData.append('password', password.value)
 
   await window.axios
     .post('/v2/login', formData)
@@ -33,20 +31,15 @@ const login = async () => {
     <text-input class="col-md-7" type="email" :required="true" @update="email = $event"
       >Email</text-input
     >
-    <text-input class="col-md-7" type="password" :required="true" @update="password = $event"
-      >Password</text-input
-    >
+
     <div class="col-md-7 mt-5">
-      <input type="submit" class="btn btn-sm btn-primary" value="Login" />
-      <a href="#" class="btn btn-sm btn-link" @click="$router.push({ name: 'password-reset' })"
-        >Reset</a
-      >
+      <input type="submit" class="btn btn-sm btn-primary" value="Reset" />
       <a
         href="#"
         class="btn btn-sm btn-link"
         style="float: right"
-        @click="$router.push({ name: 'register' })"
-        >Register</a
+        @click="$router.push({ name: 'login' })"
+        >Login</a
       >
     </div>
   </form>

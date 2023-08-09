@@ -6,7 +6,7 @@ import LoginForm from '@/components/auth/LoginForm.vue'
   <div class="container">
     <h3>Login</h3>
 
-    <login-form class="py-2"></login-form>
+    <login-form></login-form>
   </div>
 </template>
 

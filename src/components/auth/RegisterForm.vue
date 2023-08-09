@@ -38,8 +38,9 @@ const login = async () => {
     <text-input class="col-md-7 py-2" type="password" :required="true" @update="password = $event"
       >Password</text-input
     >
-    <div class="col-md-6 py-2">
+    <div class="col-md-7 py-2">
       <input type="submit" class="btn btn-sm btn-primary" value="Register" />
+      <a href="#" @click="$router.push({ name: 'login' })" style="float: right">Login</a>
     </div>
   </form>
 </template>

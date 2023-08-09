@@ -8,5 +8,10 @@ export const auth = [
     path: '/register',
     name: 'register',
     component: () => import('@/views/auth/RegisterView.vue')
+  },
+  {
+    path: '/password/reset',
+    name: 'password-reset',
+    component: () => import('@/views/auth/PasswordResetView.vue')
   }
 ]
