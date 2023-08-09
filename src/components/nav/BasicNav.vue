@@ -51,13 +51,11 @@
               Account
             </a>
             <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#" @click="$router.push({ name: 'login' })">Login</a>
+              <li @click="$router.push({ name: 'login' })">
+                <a class="dropdown-item" href="#">Login</a>
               </li>
-              <li>
-                <a class="dropdown-item" href="#" @click="$router.push({ name: 'register' })"
-                  >Register</a
-                >
+              <li @click="$router.push({ name: 'register' })">
+                <a class="dropdown-item" href="#">Register</a>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
