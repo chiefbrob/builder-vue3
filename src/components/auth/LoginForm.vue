@@ -33,10 +33,11 @@ const login = async () => {
       router.push({ name: 'home' })
       toast('Login Success')
       if (originalTo.value) {
-        window.location = originalTo.value
+        window.location = originalTo.value as Location
         originalTo.value = null
       } else {
-        window.location = '/home'
+        const location = '/home' as unknown
+        window.location = location as Location
       }
     })
     .catch((err: any) => {

@@ -9,11 +9,11 @@ export async function toast(message: string, duration: number = 1500) {
   alert(message)
 }
 
-export async function loadUser(scope) {
+export async function loadUser() {
   await axios
     .get('v2/user')
     .then((response: any) => {
-      scope.store.user = response.data
+      user.value = response.data
     })
     .catch((err) => {
       console.log(err)
@@ -26,7 +26,8 @@ export default async function logout() {
     .then(() => {
       token.value = null
       user.value = null
-      window.location = '/'
+      const location = '/' as unknown
+      window.location = location as Location
     })
     .catch((err: any) => {
       console.log(err)
