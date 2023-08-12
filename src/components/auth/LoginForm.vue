@@ -1,12 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { toast } from '@/scripts'
+import useDeepStorage from '@/composables/storage/useDeepStorage'
+import useStorage from '@/composables/storage/useStorage'
 import TextInput from '../shared/form/TextInput.vue'
+import { useRouter } from 'vue-router'
 
 const email = ref('')
 const password = ref('')
+const user = useDeepStorage('user')
+const token = useStorage('token')
+const router = useRouter()
+
+const loading = ref(false)
 
 const login = async () => {
+  loading.value = true
   const formData = new FormData()
   formData.append('email', email.value)
   formData.append('password', password.value)
@@ -14,16 +23,16 @@ const login = async () => {
   await window.axios
     .post('/v2/login', formData)
     .then((result: any) => {
-      localStorage.setItem('token', result.data.access_token)
-      console.log(result)
+      token.value = result.data.access_token
+      user.value = result.data.user
+      router.push({ name: 'home' })
       toast('Login Success')
-
-      //   this.store.token = result.data.access_token;
-      //   loadUser(this);
-      //   this.$router.push("/");
     })
     .catch((err: any) => {
       console.log(err)
+    })
+    .finally(() => {
+      loading.value = false
     })
 }
 </script>
@@ -31,13 +40,13 @@ const login = async () => {
 <template>
   <form action="POST" @submit.prevent="login" class="row">
     <text-input class="col-md-7" type="email" :required="true" @update="email = $event"
-      >Email</text-input
+      >E-mail</text-input
     >
     <text-input class="col-md-7" type="password" :required="true" @update="password = $event"
       >Password</text-input
     >
     <div class="col-md-7 mt-5">
-      <input type="submit" class="btn btn-sm btn-primary" value="Login" />
+      <input type="submit" :disabled="loading" class="btn btn-sm btn-primary" value="Login" />
       <a href="#" class="btn btn-sm btn-link" @click="$router.push({ name: 'password-reset' })"
         >Reset</a
       >

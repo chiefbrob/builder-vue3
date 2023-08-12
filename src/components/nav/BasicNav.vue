@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import useDeepStorage from '@/composables/storage/useDeepStorage'
+import logout from '@/scripts'
+const user = useDeepStorage('user')
+</script>
 
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -17,30 +21,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              :active="$route.name === 'about'"
-              aria-current="page"
-              href="#"
-              @click="$router.push({ name: 'about' })"
+          <li class="nav-item" @click="$router.push({ name: 'about' })">
+            <a class="nav-link" :active="$route.name === 'about'" aria-current="page" href="#"
               >About</a
             >
           </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              :active="$route.name === 'home'"
-              aria-current="page"
-              href="#"
-              @click="$router.push({ name: 'home' })"
+          <li class="nav-item" @click="$router.push({ name: 'home' })">
+            <a class="nav-link" :active="$route.name === 'home'" aria-current="page" href="#"
               >Home</a
             >
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" v-if="user === null">
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -59,6 +53,27 @@
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" v-else>
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {{ user.username }}
+            </a>
+            <ul class="dropdown-menu">
+              <li @click="$router.push({ name: 'profile' })">
+                <a class="dropdown-item" href="#">{{ user.name }}</a>
+              </li>
+              <li @click="$router.push({ name: 'settings' })">
+                <a class="dropdown-item" href="#">Settings</a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li @click="logout"><a class="dropdown-item" href="#">Logout</a></li>
             </ul>
           </li>
           <li class="nav-item">

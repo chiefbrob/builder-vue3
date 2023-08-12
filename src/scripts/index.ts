@@ -1,3 +1,9 @@
+import useDeepStorage from '@/composables/storage/useDeepStorage'
+import useStorage from '@/composables/storage/useStorage'
+
+const user = useDeepStorage('user')
+const token = useStorage('token')
+
 export async function toast(message: string, duration: number = 1500) {
   alert(message)
 }
@@ -17,19 +23,22 @@ export async function loadUser(scope) {
     })
 }
 
-export async function logout(scope) {
-  await scope.$api
+export default async function logout() {
+  await window.axios
     .get('v2/logout', {
       headers: {
-        Authorization: scope.store.fullToken
+        Authorization: 'Bearer ' + token.value
       }
     })
     .then(() => {
-      scope.store.reset()
-      localStorage.removeItem('token')
+      token.value = null
+      user.value = null
     })
-    .catch((err) => {
+    .catch((err: any) => {
       console.log(err)
+    })
+    .finally(() => {
+      console.log('logout complete')
     })
 }
 
