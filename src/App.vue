@@ -5,7 +5,7 @@ import BasicNav from './components/nav/BasicNav.vue'
 
 <template>
   <div class="container py-4 px-3 mx-auto">
-    <basic-nav></basic-nav>
+    <basic-nav class="mt-3"></basic-nav>
     <RouterView class="py-4" />
   </div>
 </template>
