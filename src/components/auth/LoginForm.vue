@@ -14,6 +14,8 @@ const router = useRouter()
 
 const loading = ref(false)
 
+const originalTo = useStorage('original-to-path')
+
 const login = async () => {
   loading.value = true
   const formData = new FormData()
@@ -29,7 +31,12 @@ const login = async () => {
       email.value = ''
       router.push({ name: 'home' })
       toast('Login Success')
-      window.location = '/home'
+      if (originalTo.value) {
+        window.location = originalTo.value
+        originalTo.value = null
+      } else {
+        window.location = '/home'
+      }
     })
     .catch((err: any) => {
       console.log(err)
