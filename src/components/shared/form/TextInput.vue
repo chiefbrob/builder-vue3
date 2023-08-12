@@ -5,6 +5,7 @@ const props = defineProps<{
   value?: string
   required: boolean
   type: string
+  disabled?: boolean
 }>()
 const key = ref(generateRandomString(10))
 const input = ref(props.value)
@@ -26,6 +27,7 @@ function update() {
       class="form-control"
       :required="required"
       @input="update"
+      :disabled="disabled"
     />
     <div class="valid-feedback">Looks good!</div>
   </div>

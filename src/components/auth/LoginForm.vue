@@ -25,8 +25,11 @@ const login = async () => {
     .then((result: any) => {
       token.value = result.data.access_token
       user.value = result.data.user
+      password.value = ''
+      email.value = ''
       router.push({ name: 'home' })
       toast('Login Success')
+      window.location = '/home'
     })
     .catch((err: any) => {
       console.log(err)
@@ -39,10 +42,20 @@ const login = async () => {
 
 <template>
   <form action="POST" @submit.prevent="login" class="row">
-    <text-input class="col-md-7" type="email" :required="true" @update="email = $event"
+    <text-input
+      class="col-md-7"
+      :disabled="loading"
+      type="email"
+      :required="true"
+      @update="email = $event"
       >E-mail</text-input
     >
-    <text-input class="col-md-7" type="password" :required="true" @update="password = $event"
+    <text-input
+      class="col-md-7"
+      :disabled="loading"
+      type="password"
+      :required="true"
+      @update="password = $event"
       >Password</text-input
     >
     <div class="col-md-7 mt-5">

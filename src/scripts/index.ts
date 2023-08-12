@@ -33,6 +33,7 @@ export default async function logout() {
     .then(() => {
       token.value = null
       user.value = null
+      window.location = '/'
     })
     .catch((err: any) => {
       console.log(err)
