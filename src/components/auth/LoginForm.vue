@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { toast } from '@/scripts'
 import useDeepStorage from '@/composables/storage/useDeepStorage'
 import useStorage from '@/composables/storage/useStorage'
-import TextInput from '../shared/form/TextInput.vue'
+import TextInput from '@/components/shared/form/TextInput.vue'
 import { useRouter } from 'vue-router'
 import axios from '@/axios'
 

@@ -72,6 +72,9 @@ const user = useDeepStorage('user')
               <li @click="$router.push({ name: 'settings' })">
                 <a class="dropdown-item" href="#">Settings</a>
               </li>
+              <li @click="$router.push({ name: 'contacts' })">
+                <a class="dropdown-item" href="#">Feedback</a>
+              </li>
               <li><hr class="dropdown-divider" /></li>
               <li @click="logout"><a class="dropdown-item" href="#">Logout</a></li>
             </ul>
