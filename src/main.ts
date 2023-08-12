@@ -9,6 +9,7 @@ import 'bootstrap'
 
 import App from './App.vue'
 import router from './router'
+import useStorage from './composables/storage/useStorage'
 
 const app = createApp(App)
 
@@ -19,9 +20,12 @@ app.use(router)
 
 app.mount('#app')
 
+const baseURL = 'https://laravel.test/api'
+const token = useStorage('token')
+
 const instance = axios.create({
-  baseURL: 'https://laravel.test/api/',
-  headers: { 'X-Custom-Header': 'foobar' }
+  baseURL,
+  headers: { Authorization: `Bearer ${token.value}` }
 })
 
 window.axios = instance

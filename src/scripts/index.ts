@@ -10,11 +10,7 @@ export async function toast(message: string, duration: number = 1500) {
 
 export async function loadUser(scope) {
   await scope.$api
-    .get('v2/user', {
-      headers: {
-        Authorization: scope.store.fullToken
-      }
-    })
+    .get('v2/user')
     .then((response: any) => {
       scope.store.user = response.data
     })
@@ -25,11 +21,7 @@ export async function loadUser(scope) {
 
 export default async function logout() {
   await window.axios
-    .get('v2/logout', {
-      headers: {
-        Authorization: 'Bearer ' + token.value
-      }
-    })
+    .get('v2/logout')
     .then(() => {
       token.value = null
       user.value = null
