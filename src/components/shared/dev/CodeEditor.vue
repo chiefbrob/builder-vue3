@@ -5,7 +5,7 @@ defineProps({
 
 let emit = defineEmits(['update:modelValue'])
 
-function onTabPress(e: Event) {
+function onTabPress(e: any) {
   let t = e.target
 
   let val = t.value,
@@ -17,7 +17,7 @@ function onTabPress(e: Event) {
   t.selectionEnd = start + 2
 }
 
-function update(e) {
+function update(e: any) {
   emit('update:modelValue', e.target.value)
 }
 </script>

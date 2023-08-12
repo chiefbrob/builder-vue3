@@ -5,6 +5,7 @@ import useDeepStorage from '@/composables/storage/useDeepStorage'
 import useStorage from '@/composables/storage/useStorage'
 import TextInput from '../shared/form/TextInput.vue'
 import { useRouter } from 'vue-router'
+import axios from '@/axios'
 
 const email = ref('')
 const password = ref('')
@@ -22,7 +23,7 @@ const login = async () => {
   formData.append('email', email.value)
   formData.append('password', password.value)
 
-  await window.axios
+  await axios
     .post('/v2/login', formData)
     .then((result: any) => {
       token.value = result.data.access_token

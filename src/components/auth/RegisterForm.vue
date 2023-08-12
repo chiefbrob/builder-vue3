@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { toast } from '@/scripts'
 import TextInput from '../shared/form/TextInput.vue'
+import axios from 'axios'
 
 const email = ref('')
 const name = ref('')
@@ -14,7 +15,7 @@ const login = async () => {
   formData.append('password', password.value)
   formData.append('password_confirmation', password.value)
 
-  await window.axios
+  await axios
     .post('/v2/register', formData)
     .then((result: any) => {
       localStorage.setItem('token', result.data.access_token)
