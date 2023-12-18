@@ -4,9 +4,9 @@ import BasicNav from './components/nav/BasicNav.vue'
 </script>
 
 <template>
-  <div class="container p-0 m-0">
-    <basic-nav class="m-0"></basic-nav>
-    <RouterView class="p-0" />
+  <div class="p-0 m-0">
+    <basic-nav class="m-0 col-md-12"></basic-nav>
+    <RouterView class="p-4" />
   </div>
 </template>
 
