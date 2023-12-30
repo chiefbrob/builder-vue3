@@ -1,3 +1,6 @@
+# Deprecation Notice
+This app works and connects to builder_laravel. However, I decided to build with Quasar and have made necessary progress. Should you require it, kindly let me know so I set it Public. Cheers
+
 # builder-vue3
 
 This template should help get you started developing with Vue 3 in Vite.
